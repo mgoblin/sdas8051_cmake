@@ -5,10 +5,6 @@ It demostrates how to make firmware and static library for 8051-architecture MCU
 
 Template was tested on Debian 13 and Visual Studio Code.
 
-# Table of contents
-[Why?](#Why?)</br>
-[Required software](#Required_software)
-
 # Why?
 Intel 8051 architecure microcontrollers are stable and very cheap. This MCUs continue using for simple electronic devices. 
 
@@ -76,3 +72,30 @@ make flash
 This command run stcgal flash tool.
 
 Once the download is complete, the LED on the microcontroller pin P10 will start blinking.
+
+## Source files
+Source code assembler files placed in &lt;template dir&gt;/src subfolder. 
+For demo purposes template contains one assembler source code file **blink.s**
+
+Source files must have s or asm extension.
+
+For change builded source files change src/CmakeLists.txt.
+
+```cmake
+# Firmware source files
+add_executable(blink 
+  blink.s
+)
+```
+
+```cmake
+# Static library source files
+add_library(blink_lib STATIC
+  blink.s
+)
+```
+
+## Build one of firmware or static library
+
+
+
