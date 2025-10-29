@@ -4,6 +4,7 @@ add_executable(blink
 
 ihx_to_hex(blink)
 
+# flash STC MCU
 add_custom_target(flash
     COMMAND stcgal ${CMAKE_BINARY_DIR}/src/blink.hex
     DEPENDS blink
