@@ -79,7 +79,7 @@ For demo purposes template contains one assembler source code file **blink.s**
 
 Source files must have s or asm extension.
 
-For change builded source files change src/CmakeLists.txt.
+For change builded source files edit src/CmakeLists.txt.
 
 ```cmake
 # Firmware source files
