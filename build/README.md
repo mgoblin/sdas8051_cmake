@@ -1,0 +1,1 @@
+build folder contains cmake generated config files and compilation linking results
