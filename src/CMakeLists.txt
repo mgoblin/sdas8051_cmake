@@ -9,3 +9,7 @@ add_custom_target(flash
     DEPENDS blink
     JOB_POOL console # for ninja build tool output stgal command input to console
 )
+
+add_library(blink_lib STATIC
+  blink.s
+)

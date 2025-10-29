@@ -1,5 +1,9 @@
 set(CMAKE_SYSTEM_NAME Generic)
 
+if("${SDCC_LOCATION}" STREQUAL "")
+	set(SDCC_LOCATION "/usr/bin")
+endif()	
+
 set(CMAKE_CROSSCOMPILING TRUE)
 set(CMAKE_ASM_COMPILER_ID "SDAS8051") 
 
@@ -8,12 +12,21 @@ set(CMAKE_ASM_COMPILER_LINKER sdld CACHE INTERNAL "asm linker tool")
 set(CMAKE_OBJCOPY sdobjcopy CACHE INTERNAL "objcopy tool")
 set(CMAKE_PACKIHX packihx CACHE INTERNAL "packihx tool")
 set(CMAKE_MAKEBIN makebin CACHE INTERNAL "makebin tool")
+set(CMAKE_SDAR sdar CACHE INTERNAL "library tool")
 
-get_filename_component(SDCC_LOCATION "${CMAKE_ASM_COMPILER}" PATH)
-get_filename_component(SDCC_LOCATION "${CMAKE_ASM_COMPILER_LINKER}" PATH)
-find_program(SDCCLIB_EXECUTABLE sdar PATHS "${SDCC_LOCATION}" NO_DEFAULT_PATH)
-find_program(SDCCLIB_EXECUTABLE sdar)
-set(CMAKE_AR "${SDCCLIB_EXECUTABLE}" CACHE FILEPATH "The sdcc librarian" FORCE)
+find_program(CMAKE_ASM_COMPILER sdas8051 PATHS "${SDCC_LOCATION}" NO_DEFAULT_PATH)
+find_program(CMAKE_ASM_COMPILER_LINKER sdld PATHS "${SDCC_LOCATION}" NO_DEFAULT_PATH)
+find_program(CMAKE_OBJCOPY sdobjcopy PATHS "${SDCC_LOCATION}" NO_DEFAULT_PATH)
+find_program(CMAKE_PACKIHX packihx PATHS "${SDCC_LOCATION}" NO_DEFAULT_PATH)
+find_program(CMAKE_MAKEBIN makebin PATHS "${SDCC_LOCATION}" NO_DEFAULT_PATH)
+find_program(CMAKE_SDAR sdar PATHS "${SDCC_LOCATION}" NO_DEFAULT_PATH)
+
+set(CMAKE_ASM_FLAGS "-lso -a -y")
+set(CMAKE_ASM_LINK_FLAGS "-niumwx -M -y")
+
+set(CMAKE_AR "${CMAKE_SDAR}" CACHE FILEPATH "The sdcc librarian" FORCE)
+
+option(BUILD_SHARED_LIBS "build shared libraries" OFF)
 
 if(WIN32)
 	# !! Firmware size output not tested !!
