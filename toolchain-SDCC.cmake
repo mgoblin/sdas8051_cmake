@@ -1,7 +1,7 @@
 set(CMAKE_SYSTEM_NAME Generic)
 
 if("${SDCC_LOCATION}" STREQUAL "")
-	set(SDCC_LOCATION "/usr/bin")
+	set(SDCC_LOCATION "/usr/bin") # Change it
 endif()	
 
 set(CMAKE_CROSSCOMPILING TRUE)

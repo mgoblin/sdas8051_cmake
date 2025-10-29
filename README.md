@@ -36,6 +36,12 @@ git clone https://github.com/mgoblin/sdas8051_cmake.git
 
 cd sdas8051_cmake
 ```
+Edit toolchain-SDCC.cmake. Check sdcc location path
+```cmake
+if("${SDCC_LOCATION}" STREQUAL "")
+	set(SDCC_LOCATION "/usr/bin") # Change it
+endif()	
+```
 
 Open terminal and go to &lt;template dir&gt;/build folder.
 
