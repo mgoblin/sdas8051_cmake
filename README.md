@@ -5,7 +5,8 @@ It demostrates how to make firmware and static library for 8051-architecture MCU
 
 If you need C/ASM firmware cmake build see [C/ASM firmware project template](https://github.com/mgoblin/sdcc8051_cmake)
 
-Template was tested on Debian 13 and Visual Studio Code.
+Template was tested on Debian 13 and Visual Studio Code Version: 1.105.1
+OS: Linux x64 6.12.48+deb13-amd64.
 
 # Why?
 Intel 8051 architecure microcontrollers are stable and very cheap. This MCUs continue using for simple electronic devices. 
