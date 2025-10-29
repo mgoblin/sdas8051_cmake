@@ -1,7 +1,7 @@
 # sdas8051_cmake
 Project template for SDCC 8051 assembler (sdas8051)  integrated with cmake for compilation/linking.
 
-It demostrates how to make firmware and static library for 8051-architecture MCU using SDCC and cmake.
+It demostrates how to make firmware and static library for 8051-architecture MCU using SDCC assembler sdas8051 and cmake.
 
 If you need C/ASM firmware cmake build see [C/ASM firmware project template](https://github.com/mgoblin/sdcc8051_cmake)
 
