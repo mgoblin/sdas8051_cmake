@@ -189,7 +189,7 @@ At the end of json add SDCC Cmake Kit description
 ```
 Save cmake-tools-kits.json.
 
-After that, you can open the project folder and VS Code will "pick up" the project with cmake support. When VS code importing project select SDCC Kit in drop-down list.   
+After that, you can open the project folder (File/Open Folder menu item) and VS Code will "pick up" the project with cmake support. When VS code importing project select SDCC Kit in drop-down list.   
 
 Using command palette you can build running "CMake:Build" and other cmake commands now.
 
