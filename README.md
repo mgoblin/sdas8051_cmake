@@ -18,10 +18,12 @@ This repository contains my experiment results to compile STC MCU firmware and s
 
 
 # Dependencies (required software)
+Before using this template, you must install the following on your PC:
 1. [SDCC toolkit](https://sdcc.sourceforge.net/). 
 2. [stcgal](https://github.com/grigorig/stcgal) STC MCU ISP flash tool. For others 8051 MCU (not STC) flash target in src/CmakeLists.txt should be modified or removed.
 3. Build tools: make or ninjia
-4. cmake version >= 3.31 
+4. cmake version >= 3.31
+5. git (only for clone template files from gihub). 
 
 # How to use it
 
