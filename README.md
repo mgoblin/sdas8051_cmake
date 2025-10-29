@@ -26,4 +26,49 @@ Before using this template, you must install the following on your PC:
 5. git (only for clone template files from gihub). 
 
 # How to use it
+## First steps
+Clone this template from github.
 
+Open terminal and go to &lt;template dir&gt;/build folder.
+
+Run command: 
+```bash
+cmake ..
+```
+This command generate make files to build project files. Command output is:
+```
+-- The ASM compiler identification is SDAS8051
+-- Found assembler: /usr/bin/sdas8051
+-- Configuring done (0.0s)
+-- Generating done (0.0s)
+-- Build files have been written to: <absoule path to template_dir/build folder> 
+```
+
+Now you are ready to build firmware and static library. Run command:
+```bash
+make
+```
+Command output is:
+```
+[ 25%] Building ASM object src/CMakeFiles/blink.dir/blink.rel
+[ 50%] Linking ASM executable blink.hex
+packihx: read 2 lines, wrote 3: OK.
+Firmware bytes size: 22
+[ 50%] Built target blink
+[ 75%] Building ASM object src/CMakeFiles/blink_lib.dir/blink.rel
+[100%] Linking ASM static library blink_lib.lib
+[100%] Built target blink_lib
+```
+
+Yap. Success. You can find firmware hex file &lt;template dir&gt;/build/src/blink.hex
+
+If you have STC MCU (dev board) connected to PC with something like [programmator](https://github.com/mgoblin/STC-programmator) firmware could be uploaded.
+
+Assume terminal in &lt;template dir&gt;/build folder.
+To upload firmware run:
+```bash
+make flash
+```
+This command run stcgal flash tool.
+
+Once the download is complete, the LED on the microcontroller pin P10 will start blinking.
