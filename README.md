@@ -21,7 +21,7 @@ This repository contains my experiment results to compile STC MCU firmware and s
 Before using this template, you must install the following on your PC:
 1. [SDCC toolkit](https://sdcc.sourceforge.net/). 
 2. [stcgal](https://github.com/grigorig/stcgal) STC MCU ISP flash tool. For others 8051 MCU (not STC) flash target in src/CmakeLists.txt should be modified or removed.
-3. Build tools: make or ninjia
+3. Build tools: make or ninjia or both
 4. cmake version >= 3.31
 5. git (only for clone template files from gihub). 
 
@@ -33,9 +33,12 @@ Open terminal and go to &lt;template dir&gt;/build folder.
 
 Run command: 
 ```bash
-cmake ..
+# For make build tool
+cmake -G "Unix Makefiles" ..
+# For ninja build tool, but dont use make and ninja at the same time
+cmake -G "Ninja" ..
 ```
-This command generate files to build project using make utility. Command output is:
+This command generate files to build project using make utility (or ninja). Command output is:
 ```
 -- The ASM compiler identification is SDAS8051
 -- Found assembler: /usr/bin/sdas8051
@@ -47,6 +50,7 @@ This command generate files to build project using make utility. Command output 
 Now you are ready to build firmware and static library. Run command:
 ```bash
 make
+# or ninja 
 ```
 Command output is:
 ```
@@ -103,7 +107,7 @@ add_executable(blink
 # ---- remove end
 ```
 
-## Change source files
+## Change assembler source files
 Source code assembler files placed in &lt;template dir&gt;/src subfolder. 
 For demo purposes template contains one assembler source code file **blink.s**
 
@@ -127,6 +131,13 @@ add_library(blink_lib STATIC
 )
 ```
 
+## Change compiler and linker flags (optional)
+See SDCC documentation and edit root folder CMakeLists.txt
+```cmake
+# Change complier and linker flags
+set(CMAKE_ASM_FLAGS "-lso -a -y")
+set(CMAKE_ASM_LINK_FLAGS "-niumwx -M -y")
+```
 
 
 

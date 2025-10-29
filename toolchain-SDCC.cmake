@@ -21,9 +21,6 @@ find_program(CMAKE_PACKIHX packihx PATHS "${SDCC_LOCATION}" NO_DEFAULT_PATH)
 find_program(CMAKE_MAKEBIN makebin PATHS "${SDCC_LOCATION}" NO_DEFAULT_PATH)
 find_program(CMAKE_SDAR sdar PATHS "${SDCC_LOCATION}" NO_DEFAULT_PATH)
 
-set(CMAKE_ASM_FLAGS "-lso -a -y")
-set(CMAKE_ASM_LINK_FLAGS "-niumwx -M -y")
-
 set(CMAKE_AR "${CMAKE_SDAR}" CACHE FILEPATH "The sdcc librarian" FORCE)
 
 option(BUILD_SHARED_LIBS "build shared libraries" OFF)
