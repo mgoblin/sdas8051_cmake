@@ -73,30 +73,6 @@ This command run stcgal flash tool.
 
 Once the download is complete, the LED on the microcontroller pin P10 will start blinking.
 
-## Source files
-Source code assembler files placed in &lt;template dir&gt;/src subfolder. 
-For demo purposes template contains one assembler source code file **blink.s**
-
-Source files must have s or asm extension.
-
-For change builded source files edit src/CmakeLists.txt. Add or remove files
-
-```cmake
-# Firmware build description
-add_executable(blink 
-  # <item1> <item2> ... - assembler source files *.s *.asm
-  blink.s 
-)
-```
-
-```cmake
-# Static library build desciption
-add_library(blink_lib STATIC
-  # <item1> <item2> ... - assembler source files *.s *.asm
-  blink.s
-)
-```
-
 ## Build either firmware or a static library
 For demonstration purposes only, the blink.s assembler source file is compiled for both targets: the firmware (blink.hex)  and the static library (blink_lib.lib).
 
@@ -126,6 +102,31 @@ add_executable(blink
 )
 # ---- remove end
 ```
+
+## Change source files
+Source code assembler files placed in &lt;template dir&gt;/src subfolder. 
+For demo purposes template contains one assembler source code file **blink.s**
+
+Source files must have s or asm extension.
+
+For change builded source files edit src/CmakeLists.txt. Add or remove files
+
+```cmake
+# Firmware build description
+add_executable(blink 
+  # <item1> <item2> ... - assembler source files *.s *.asm
+  blink.s 
+)
+```
+
+```cmake
+# Static library build desciption
+add_library(blink_lib STATIC
+  # <item1> <item2> ... - assembler source files *.s *.asm
+  blink.s
+)
+```
+
 
 
 
