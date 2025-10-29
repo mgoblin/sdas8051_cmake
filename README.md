@@ -79,23 +79,54 @@ For demo purposes template contains one assembler source code file **blink.s**
 
 Source files must have s or asm extension.
 
-For change builded source files edit src/CmakeLists.txt.
+For change builded source files edit src/CmakeLists.txt. Add or remove files
 
 ```cmake
-# Firmware source files
+# Firmware build description
 add_executable(blink 
-  blink.s
+  # <item1> <item2> ... - assembler source files *.s *.asm
+  blink.s 
 )
 ```
 
 ```cmake
-# Static library source files
+# Static library build desciption
 add_library(blink_lib STATIC
+  # <item1> <item2> ... - assembler source files *.s *.asm
   blink.s
 )
 ```
 
-## Build one of firmware or static library
+## Build either firmware or a static library
+For demonstration purposes only, the blink.s assembler source file is compiled for both targets: the firmware (blink.hex)  and the static library (blink_lib.lib).
+
+Really make both firmware and static library from the same sources doesn't make sence.
+
+If you need build only firmware hex delete from src/CmakeLists.txt build library 
+target defintion below
+
+```cmake
+# ---- Remove if you dont need static library build
+# Static library build desciption
+add_library(blink_lib STATIC
+  # <item1> <item2> ... - assembler source files *.s *.asm
+  blink.s
+)
+# ---- remove end
+```
+
+If you need only static library remove firmware build from src/CMakeLists.txt. In terms of cmake MCU firmware is executable.
+
+```cmake
+# ---- Remove if you dont need firmware build
+# Firmware build description
+add_executable(blink 
+  # <item1> <item2> ... - assembler source files *.s *.asm
+  blink.s
+)
+# ---- remove end
+```
+
 
 
 
