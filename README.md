@@ -139,6 +139,48 @@ set(CMAKE_ASM_FLAGS "-lso -a -y")
 set(CMAKE_ASM_LINK_FLAGS "-niumwx -M -y")
 ```
 
+# Use Cmake with Visual Studio code
+This is optional step. 
 
+With cmake you are free to use your favorite IDE/code editor.
 
+But if you like to develop embedded software using VS code, do following steps: 
+ - Install VS code. 
+ - Install C/C++ and cmake plugins.
+ - Go to command palette (Ctrl+Shift+P) and select "Edit User-Local Cmake Kits" command. File cmake-tools-kits.json will be opened.
+
+At the end of json add SDCC Cmake Kit description 
+```json
+  [
+  {
+    "name": "GCC 14.2.0 x86_64-linux-gnu",
+    "compilers": {
+      "C": "/usr/bin/gcc",
+      "CXX": "/usr/bin/g++"
+    },
+    "isTrusted": true
+  },
+  {
+    "name": "GCC 14.2.1 arm-none-eabi",
+    "compilers": {
+      "C": "/usr/bin/arm-none-eabi-gcc",
+      "CXX": "/usr/bin/arm-none-eabi-g++"
+    },
+    "isTrusted": true
+  },
+  {
+    "name": "SDCC",
+    "compilers": {
+      "C": "/usr/bin/sdcc",
+      "ASM": "/usr/bin/sdas8051"
+    },
+    "isTrusted": true
+  }
+]
+```
+Save cmake-tools-kits.json.
+
+After that, you can open the project folder and VS Code will "pick up" the project with cmake support.
+
+Using command palette you can build running "CMake:Build" and other cmake commands.
 
