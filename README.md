@@ -5,6 +5,10 @@ It demostrates how to make firmware and static library for 8051-architecture MCU
 
 Template was tested on Debian 13 and Visual Studio Code.
 
+# Table of contents
+[Why?](#Why?)</br>
+[Required software](#Required_software)
+
 # Why?
 Intel 8051 architecure microcontrollers are stable and very cheap. This MCUs continue using for simple electronic devices. 
 
@@ -17,7 +21,7 @@ On beggining STC15W408AS MCU programming I have desire to build firmware outside
 This repository contains my experiment results to compile STC MCU firmware and static libraries using cmake.
 
 
-# Dependencies (required software)
+# Required software
 Before using this template, you must install the following on your PC:
 1. [SDCC toolkit](https://sdcc.sourceforge.net/). 
 2. [stcgal](https://github.com/grigorig/stcgal) STC MCU ISP flash tool. For others 8051 MCU (not STC) flash target in src/CmakeLists.txt should be modified or removed.
@@ -35,7 +39,7 @@ Run command:
 ```bash
 cmake ..
 ```
-This command generate make files to build project files. Command output is:
+This command generate files to build project using make utility. Command output is:
 ```
 -- The ASM compiler identification is SDAS8051
 -- Found assembler: /usr/bin/sdas8051
