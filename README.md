@@ -21,9 +21,9 @@ This repository contains my experiment results to compile STC MCU firmware and s
 
 
 # Required software
-Before using this template, you must install the following on your PC:
+Before using this template, you must install the following soft on your PC:
 1. [SDCC toolkit](https://sdcc.sourceforge.net/). 
-2. [stcgal](https://github.com/grigorig/stcgal) STC MCU ISP flash tool. For others 8051 MCU (not STC) flash target in src/CmakeLists.txt should be modified or removed.
+2. [stcgal](https://github.com/grigorig/stcgal) STC MCU ISP flash tool. For others 8051 MCU (not STC) flash target in src/CmakeLists.txt should be modified or target should be removed.
 3. Build tools: make or ninjia or both
 4. cmake version >= 3.31
 5. git (only for clone template files from gihub). 
@@ -31,11 +31,17 @@ Before using this template, you must install the following on your PC:
 # How to use it
 ## First steps
 Clone this template from github.
+```bash
+git clone https://github.com/mgoblin/sdas8051_cmake.git
+
+cd sdas8051_cmake
+```
 
 Open terminal and go to &lt;template dir&gt;/build folder.
 
 Run command: 
 ```bash
+cd build
 # For make build tool
 cmake -G "Unix Makefiles" ..
 # For ninja build tool, but dont use make and ninja at the same time
@@ -69,7 +75,7 @@ Firmware bytes size: 22
 
 Yap. Success. You can find firmware hex file &lt;template dir&gt;/build/src/blink.hex
 
-If you have STC MCU (dev board) connected to PC with something like [programmator](https://github.com/mgoblin/STC-programmator) firmware could be uploaded.
+If you have STC MCU (dev board) connected to PC with something like [STC programmator](https://github.com/mgoblin/STC-programmator) firmware could be uploaded.
 
 Assume terminal in &lt;template dir&gt;/build folder.
 To upload firmware run:
@@ -116,7 +122,7 @@ For demo purposes template contains one assembler source code file **blink.s**
 
 Source files must have s or asm extension.
 
-For change builded source files edit src/CmakeLists.txt. Add or remove files
+For change builded source files place it to src folder and edit src/CmakeLists.txt.
 
 ```cmake
 # Firmware build description
@@ -183,7 +189,7 @@ At the end of json add SDCC Cmake Kit description
 ```
 Save cmake-tools-kits.json.
 
-After that, you can open the project folder and VS Code will "pick up" the project with cmake support.
+After that, you can open the project folder and VS Code will "pick up" the project with cmake support. When VS code importing project select SDCC Kit in drop-down list.   
 
-Using command palette you can build running "CMake:Build" and other cmake commands.
+Using command palette you can build running "CMake:Build" and other cmake commands now.
 
